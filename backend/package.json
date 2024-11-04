@@ -6,7 +6,9 @@
 "scripts": {
     "dev": "nodemon backend/index.js",
     "build": "npm install --prefix fronend && npm run build --prefix fronend",
-    "start": "nodemon backend/index.js",
+    "start": "node index.js",
+    "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false npm install npm --prefix fronend && npm run build --prefix fronend",
+
     "test": "echo \"Error: no test specified\" && exit 1"
 },
   "keywords": [],

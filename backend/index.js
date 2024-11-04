@@ -20,7 +20,7 @@ const {addPost,GetPost,updatePost,deletePost,getPostById} =require('./AddPost');
 const {getTableCounts}=require('./Couting');
 const { AddCourses, getCourseData ,DeleteCourse,EditCourse}=require('./addCourses');
 const Connection = require('./conection'); // Database connection setup
-const PORT=process.env.PORT || 5000
+const PORT=process.env.PORT || 3000
 const app = express();
 
 // Middleware
@@ -131,23 +131,20 @@ app.get('/getPosts',GetPost);
  app.post('/login',Login);
  // signup route
  app.post('/signup',Signup);
+if(process.env.NODE_ENV=="production")
+{
+   app.use(express.static('fronend/dist'))
+}
 
- //dist and directory name
-//  const __dirname_=path.resolve();
-//  app.use(express.static(path.json(__dirname_,'/fronend/dist')))
-//  app.get('*',(req,res)=>{
-//    res.sendFile(path.resolve(__dirname_,'fronend','dist','index.html'))
-//  })
-// Set up the __dirname constant to access the project directory
-const __dirname_ = path.resolve();
+// const __dirname_ = path.resolve();
 
-// Serve static files from the frontend/dist directory
-app.use(express.static(path.join(__dirname_, 'fronend', 'dist')));
+// // Serve static files from the frontend/dist directory
+// app.use(express.static(path.join(__dirname_, 'fronend', 'dist')));
 
-// Serve index.html for any route
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'fronend', 'dist', 'index.html'));
-});
+// // Serve index.html for any route
+// app.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'fronend', 'dist', 'index.html'));
+// });
 
 // contact post
 // Contact form submission route
