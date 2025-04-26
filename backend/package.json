@@ -5,9 +5,9 @@
   "main": "index.js",
 "scripts": {
     "dev": "nodemon backend/index.js",
-    "build": "npm install --prefix fronend && npm run build --prefix fronend",
+    "build": "npm install --prefix fronend && npm run build ",
     "start": "node index.js",
-    "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false npm install npm --prefix fronend && npm run build --prefix fronend",
+    "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false npm install npm --prefix fronend && npm run build ",
 
     "test": "echo \"Error: no test specified\" && exit 1"
 },
